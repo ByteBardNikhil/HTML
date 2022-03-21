@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Cal.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="display">
+            <input type="text" placeholder="Hello World" id="inputID">
+
+
+        </div>
+        <table>
+            <tr>
+                <td onclick="backspace()">CE</td>
+                <td  id="ca"  onclick="ca()">CA</td>
+                <td>(</td>
+                <td>)</td>
+                <td>%</td>
+                <td id="ac" onclick="ac()">AC</td>
+            </tr>
+            <tr>
+                <td onclick="sin()">sin</td>
+                <td onclick="pi()">Π</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>÷</td>
+            </tr>
+            <tr>
+                <td onclick="cos()">cos</td>
+                <td onclick="log()">log</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>×</td>
+            </tr>
+            <tr>
+                <td onclick="tan()">tan</td>
+                <td onclick="sqrt()">√</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td onclick="e()">e</td>
+                <td onclick="pow()">x <sup>y</sup></td>
+                <td>0</td>
+                <td>.</td>
+                <td id="equal" onclick="screen.value=eval(screen.value)">=</td>
+                <td>+</td>
+            </tr>
+        </table>
+    </div>
+
+
+    </div>
+   <script >
+       
+       var screen=document.getElementById("inputID");
+       var x=document.getElementsByTagName("td");
+      
+      
+       
+       for(v of x)
+       {
+           v.addEventListener('click',(e)=>{
+               btntext=e.target.innerText;
+               
+               if(btntext=='×')
+               {
+                   btntext='*';
+               }
+               if(btntext=='÷')
+               {
+                   btntext='/';
+
+               }
+               if(btntext=='x y'||btntext=='='||btntext=='CE'||btntext=='CA'||btntext=='AC'||btntext=='sin'||btntext=='tan'||btntext=='cos'||btntext=='pow'||btntext=='√'||btntext=='log'||btntext=='Π'||btntext=='e')
+               {
+                   btntext="";
+               }
+              
+               screen.value+=btntext;
+               
+            })
+            
+            var sin=()=>{
+                screen.value=Math.sin(screen.value);
+
+            }
+            var cos=()=>{
+                screen.value=Math.sin(screen.value);
+
+            }
+            var ca=()=>
+            {
+              screen.value="";
+            }
+            function tan()
+            {
+                screen.value=Math.tan(screen.value);
+            }
+            function pow()
+            {
+                screen.value=Math.pow(screen.value,2);
+            }
+            function sqrt()
+            {
+                screen.value=Math.sqrt(screen.value);
+            }
+            function log()
+            {
+                screen.value=Math.log(screen.value);
+            }
+            function pi()
+            {
+                screen.value=3.14;
+            }
+            function e()
+            {
+                screen.value=2.71;
+            }
+            function backspace()
+            {
+                screen.value=screen.value.substr(0,screen.value.lenth-1);
+            }
+
+            function ac()
+            {
+                screen.value=0;
+            }
+
+
+            
+       }
+
+       
+
+       
+       
+
+        
+     
+   </script>
+</body>
+
+</html>
